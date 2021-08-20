@@ -1,0 +1,9 @@
+- id: gitlabci-lint
+  name: Linting .gitlab-ci.yml
+  description: >
+    This hooks verifies that your Gitlab CI configuration is valid against
+    the official json schema cloned from https://json.schemastore.org/gitlab-ci
+  entry: gitlabci-jsonschema-lint
+  language: python
+  files: '.gitlab-ci.yml'
+  pass_filenames: false
