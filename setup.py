@@ -22,4 +22,5 @@ setup(
         "Programming Language :: Python :: 3",
         "Topic :: Software Development :: Quality Assurance",
     ],
+    include_package_data=True,
 )

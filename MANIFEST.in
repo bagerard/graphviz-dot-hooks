@@ -1,8 +1,2 @@
-# Include the README
-include README.md
-
-# Include the license file
-include LICENSE
-
 # Include the json schema
-include gitlab-ci.json
+include gitlabci_lint/gitlab-ci.json

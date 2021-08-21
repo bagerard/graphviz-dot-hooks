@@ -10,9 +10,7 @@ import ruamel.yaml
 yaml = ruamel.yaml.YAML(typ="safe")
 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.dirname(CUR_DIR)
-
-GITLABCI_SCHEMA_PATH = os.path.join(ROOT_DIR, "gitlab-ci.json")
+GITLABCI_SCHEMA_PATH = os.path.join(CUR_DIR, "gitlab-ci.json")
 
 
 def read_json_schema(filepath):
@@ -65,7 +63,7 @@ def main():
 
     args = parser.parse_args()
 
-    success, messages = run_check(args.instancefiles)
+    success, messages = run_check(args)
 
     for message in messages:
         print(message)
