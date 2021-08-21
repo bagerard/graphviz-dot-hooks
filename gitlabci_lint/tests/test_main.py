@@ -52,6 +52,6 @@ def test_run_check_invalid():
     assert messages == [
         "Schema validation errors were encountered.",
         "  "
-        "\x1b[0;33m/home/bgerard/dev/gitlabci-jsonschema-lint/gitlabci_lint/tests/sample_invalid_gitlabci.yml::test.artifacts: "
+        f"\x1b[0;33m{INVALID_SAMPLE_GITLABCI}::test.artifacts: "
         "\x1b[0m['not supposed to be a list'] is not of type 'object'",
     ]
