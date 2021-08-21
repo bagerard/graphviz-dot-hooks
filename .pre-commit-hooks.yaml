@@ -6,4 +6,4 @@
   entry: gitlabci-jsonschema-lint
   language: python
   files: '.gitlab-ci.yml'
-  pass_filenames: false
+  pass_filenames: true
