@@ -5,7 +5,10 @@ INSTALL_REQUIRES = [
     "ruamel.yaml>=0.16.0",
 ]
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
     name="gitlabci-jsonschema-lint",
@@ -15,6 +18,8 @@ setup(
     url="https://github.com/bagerard/gitlabci-jsonschema-lint",
     keywords="gitlab-ci linter ",
     license="MIT License",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=["gitlabci_lint"],
     install_requires=INSTALL_REQUIRES,
     entry_points={"console_scripts": ["gitlabci-jsonschema-lint = gitlabci_lint:main"]},
