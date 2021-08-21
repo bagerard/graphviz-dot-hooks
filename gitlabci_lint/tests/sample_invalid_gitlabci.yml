@@ -1,0 +1,8 @@
+image: python:latest
+
+test:
+  script:
+    - python setup.py test
+
+  artifacts:
+    - not supposed to be a list

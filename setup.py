@@ -3,7 +3,6 @@ from setuptools import setup
 INSTALL_REQUIRES = [
     "jsonschema>=3.0.0",
     "ruamel.yaml>=0.16.0",
-    "identify>=2.2.0",
 ]
 
 setup(
