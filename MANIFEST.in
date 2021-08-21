@@ -2,7 +2,7 @@
 include README.md
 
 # Include the license file
-include LICENSE.txt
+include LICENSE
 
 # Include the json schema
 include gitlab-ci.json
