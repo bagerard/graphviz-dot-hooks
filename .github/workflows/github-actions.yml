@@ -25,33 +25,33 @@ jobs:
     - run: bash .github/workflows/install_ci_python_dep.sh
     - run: pre-commit run -a
 
-  test:
-    # Test suite run against recent python versions
-    # and against a few combination of MongoDB and pymongo
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy3]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: install ci dependencies
-      run: |
-        bash .github/workflows/install_ci_python_dep.sh
-    - name: install dep
-      run: pip install .
-    - name: Run test suite
-      run: pytest
-    - name: Send coverage to Coveralls
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        COVERALLS_SERVICE_NAME: github
-      if: ${{ matrix.python-version == 3.7 }}
-      run: coveralls
+#  test:
+#    # Test suite run against recent python versions
+#    # and against a few combination of MongoDB and pymongo
+#    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        python-version: [3.6, 3.7, 3.8, 3.9, pypy3]
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Set up Python ${{ matrix.python-version }}
+#      uses: actions/setup-python@v2
+#      with:
+#        python-version: ${{ matrix.python-version }}
+#    - name: install ci dependencies
+#      run: |
+#        bash .github/workflows/install_ci_python_dep.sh
+#    - name: install dep
+#      run: pip install .
+#    - name: Run test suite
+#      run: pytest
+#    - name: Send coverage to Coveralls
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        COVERALLS_SERVICE_NAME: github
+#      if: ${{ matrix.python-version == 3.7 }}
+#      run: coveralls
 
   build-n-publish:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
       run: |
         pip install wheel
         python setup.py sdist bdist_wheel
-    - name: publish pypi
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        password: ${{ secrets.pypi_token }}
+#    - name: publish pypi
+#      uses: pypa/gh-action-pypi-publish@master
+#      with:
+#        password: ${{ secrets.pypi_token }}
