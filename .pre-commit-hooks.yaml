@@ -1,4 +1,4 @@
-- id: gitlabci-lint
+- id: gitlabci-jsonschema-lint
   name: Linting .gitlab-ci.yml
   description: >
     This hooks verifies that your Gitlab CI configuration is valid against

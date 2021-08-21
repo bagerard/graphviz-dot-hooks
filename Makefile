@@ -33,5 +33,4 @@ _install_virtualenv:
 
 _install_pkg:
 	echo "Installing cmp packages and dependencies..."
-	pip install -r requirements.txt
-	pip install -e .
+	pip install -r requirements_dev.txt

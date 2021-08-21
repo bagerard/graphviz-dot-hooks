@@ -25,9 +25,7 @@ def read_gitlabci(filepath):
     elif "json" in tags:
         loader = json.load
     else:
-        raise ValueError(
-            f"cannot check {filepath} as it is neither yaml nor json"
-        )
+        raise ValueError(f"cannot check {filepath} as it is neither yaml nor json")
     with open(filepath) as f:
         return loader(f)
 
