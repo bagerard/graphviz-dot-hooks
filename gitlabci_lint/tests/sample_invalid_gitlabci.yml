@@ -2,7 +2,7 @@ image: python:latest
 
 test:
   script:
-    - python setup.py test
+    some_key: wont work
 
   artifacts:
     - not supposed to be a list

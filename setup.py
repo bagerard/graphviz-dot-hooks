@@ -5,7 +5,7 @@ INSTALL_REQUIRES = [
     "ruamel.yaml>=0.16.0",
 ]
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -18,6 +18,7 @@ setup(
     url="https://github.com/bagerard/gitlabci-jsonschema-lint",
     keywords="gitlab-ci linter ",
     license="MIT License",
+    description="Python library to lint .gitlab-ci.yml files",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=["gitlabci_lint"],

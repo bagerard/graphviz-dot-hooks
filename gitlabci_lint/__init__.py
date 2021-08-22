@@ -4,8 +4,8 @@ import sys
 from typing import Tuple, List
 import os
 
-import jsonschema
 import ruamel.yaml
+from jsonschema import Draft7Validator
 
 yaml = ruamel.yaml.YAML(typ="safe")
 
@@ -13,23 +13,24 @@ CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 GITLABCI_SCHEMA_PATH = os.path.join(CUR_DIR, "gitlab-ci.json")
 
 
-def read_json_schema(filepath):
+def read_json_schema(filepath: str):
     with open(filepath) as f:
         return json.load(f)
 
 
-def read_gitlabci(filepath):
+def read_gitlabci(filepath: str):
     with open(filepath) as f:
         return yaml.load(f)
 
 
-def lint_it(gitlabci_content, json_schema: dict) -> Tuple[str, str]:
-    try:
-        jsonschema.validate(instance=gitlabci_content, schema=json_schema)
-    except jsonschema.ValidationError as err:
-        node_path = [str(x) for x in err.path] or ["<root>"]
+def lint_it(gitlabci_content, json_schema: dict) -> List[Tuple[str, str]]:
+    v = Draft7Validator(json_schema)
+    linting_errors = []
+    for error in sorted(v.iter_errors(gitlabci_content), key=str):
+        node_path = [str(x) for x in error.path] or ["<root>"]
         node_path = ".".join(x if "." not in x else f'"{x}"' for x in node_path)
-        return node_path, err.message
+        linting_errors.append((node_path, error.message))
+    return linting_errors
 
 
 def run_check(args) -> Tuple[bool, List[str]]:
@@ -47,10 +48,10 @@ def run_check(args) -> Tuple[bool, List[str]]:
         messages.append("Schema validation errors were encountered.")
         for filename in args.instancefiles:
             if filename in failures:
-                node_path, error_msg = failures[filename]
-                messages.append(
-                    f"  \033[0;33m{filename}::{node_path}: \033[0m{error_msg}"
-                )
+                for node_path, error_msg in failures[filename]:
+                    messages.append(
+                        f"  \033[0;33m{filename}::{node_path}: \033[0m{error_msg}"
+                    )
     else:
         messages.append("ok -- validation done")
 

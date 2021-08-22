@@ -35,7 +35,10 @@ def test_lint_it_invalid():
     }
     doc = {"name": "Eggs", "price": 34.99}
     errors = lint_it(doc, schema)
-    assert errors == ("<root>", "'firstname' is a required property")
+    assert errors == [
+        ("<root>", "'firstname' is a required property"),
+        ("<root>", "'lastname' is a required property"),
+    ]
 
 
 def test_run_check_valid():
@@ -52,6 +55,9 @@ def test_run_check_invalid():
     assert messages == [
         "Schema validation errors were encountered.",
         "  "
-        f"\x1b[0;33m{INVALID_SAMPLE_GITLABCI}::test.artifacts: "
+        "\x1b[0;33m/home/bgerard/dev/gitlabci-jsonschema-lint/gitlabci_lint/tests/sample_invalid_gitlabci.yml::test.artifacts: "
         "\x1b[0m['not supposed to be a list'] is not of type 'object'",
+        "  "
+        "\x1b[0;33m/home/bgerard/dev/gitlabci-jsonschema-lint/gitlabci_lint/tests/sample_invalid_gitlabci.yml::test.script: "
+        "\x1b[0m{'some_key': 'wont work'} is not valid under any of the given schemas",
     ]
