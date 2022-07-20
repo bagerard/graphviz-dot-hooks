@@ -22,7 +22,12 @@ setup(
     long_description_content_type="text/markdown",
     packages=["graphviz_dot_hooks"],
     install_requires=INSTALL_REQUIRES,
-    entry_points={"console_scripts": ["check-dot = graphviz_dot_hooks.check_dot:main"]},
+    entry_points={
+        "console_scripts": [
+            "check-dot = graphviz_dot_hooks.check_dot:main",
+            "render-dot = graphviz_dot_hooks.render_dot:main",
+        ]
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "Topic :: Software Development :: Quality Assurance",
