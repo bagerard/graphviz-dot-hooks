@@ -1,9 +1,7 @@
-- id: gitlabci-jsonschema-lint
-  name: Linting .gitlab-ci.yml
-  description: >
-    This hooks verifies that your Gitlab CI configuration is valid against
-    the official json schema cloned from https://json.schemastore.org/gitlab-ci
-  entry: gitlabci-jsonschema-lint
+- id: check-dot
+  name: check dot
+  description: checks dot files for parseable syntax.
+  entry: check-dot
   language: python
-  files: '.gitlab-ci.yml'
+  files: '.dot'
   pass_filenames: true

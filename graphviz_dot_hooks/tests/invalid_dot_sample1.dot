@@ -1,0 +1,8 @@
+digraph D {
+
+  A [shape=diamond]
+  B [shape=box]
+
+  # typo on line below
+  A -> -> B [style=dashed, color=grey]
+}

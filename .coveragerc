@@ -1,0 +1,2 @@
+[run]
+omit = graphviz_dot_hooks/tests/*
