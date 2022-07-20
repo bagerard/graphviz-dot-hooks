@@ -4,15 +4,20 @@ This is a [pre-commit hook](https://pre-commit.com/) that uses graphviz python l
 
 ## Installation
 
-This tool requires graphviz to be installed
+Whether you use it as a cli or through [pre-commit hook](https://pre-commit.com/),
+this tool requires [graphviz](https://www.graphviz.org/) to be installed
 
+Thus, if you are on Debian, that is:
+
+    sudo apt install graphviz
+    
 ## Rationale
 
-    ...
+    Linters are cool
 
 ## CLI Usage
 
-    ...
+    check-dot your-dot-file1.dot your-dot-file2.dot
 
 
 ## Pre-commit integration
