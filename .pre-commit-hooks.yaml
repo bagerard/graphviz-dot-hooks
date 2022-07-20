@@ -5,3 +5,10 @@
   language: python
   files: '.dot'
   pass_filenames: true
+- id: render-dot
+  name: render dot
+  description: render all .dot to .dot.png
+  entry: render-dot
+  language: python
+  files: '.dot'
+  pass_filenames: true
