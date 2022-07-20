@@ -2,6 +2,10 @@
 
 This is a [pre-commit hook](https://pre-commit.com/) that uses graphviz python library to validate .dot files
 
+## Installation
+
+This tool requires graphviz to be installed
+
 ## Rationale
 
     ...

@@ -1,5 +1,5 @@
 #!/bin/bash
-apt install graphviz
+sudo apt install graphviz
 
 pip install --upgrade pip
 pip install coveralls
