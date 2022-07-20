@@ -32,7 +32,7 @@ def verify_dots_rendering(dot_filepaths: Sequence[str]) -> Tuple[bool, List[str]
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("instancefiles", nargs="+", help="JSON or YAML files to check.")
+    parser.add_argument("instancefiles", nargs="+", help=".dot files to check")
 
     args = parser.parse_args()
 
