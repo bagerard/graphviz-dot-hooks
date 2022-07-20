@@ -1,11 +1,10 @@
 from setuptools import setup
 
 INSTALL_REQUIRES = [
-    "jsonschema>=3.0.0",
-    "ruamel.yaml>=0.16.0",
+    "graphviz",
 ]
 
-VERSION = "0.0.3"
+VERSION = "0.1.0"
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
