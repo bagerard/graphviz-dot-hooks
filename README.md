@@ -17,13 +17,20 @@ Thus, if you are on Debian, that is:
 
 ## CLI Usage
 
+### check-dot
+
 Verify the syntax of .dot files:
     
     check-dot your-dot-file1.dot your-dot-file2.dot
-    
-Render .dot files to .dot.png:
 
+### render-dot
+Render .dot files to png. This command can work in 2 ways
+
+    # will (re)generate 2 png files, simply appending .png to the source files 
     render-dot your-dot-file1.dot your-dot-file2.dot
+
+    # will (re)generate 2 png files at custom locations
+    render-dot your-dot-file1.dot your-dot-file2.dot --only your-dot-file1.dot:other_location.png,your-dot-file2.dot:other_location2.png
 
 ## Pre-commit integration
 
@@ -36,5 +43,6 @@ repos:
     hooks:
       - id: check-dot
       - id: render-dot
+        # optionally command: ["--only somefile.dot:doc/somefile.png"]
 ```
 

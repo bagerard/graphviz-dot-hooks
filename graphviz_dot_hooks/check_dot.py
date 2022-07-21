@@ -8,6 +8,8 @@ from graphviz import render
 
 
 def _verify_dot_rendering(dot_filepath: str) -> Tuple[bool, Optional[str]]:
+    """Trying to render it would detect syntax error, there are probably cheaper way to check this
+    but we aren't really looking after performance here"""
     with tempfile.NamedTemporaryFile(suffix=".png") as tmpf:
         try:
             render("dot", "png", dot_filepath, outfile=tmpf.name)
