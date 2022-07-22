@@ -1,6 +1,6 @@
 # graphviz-dot-hooks
 
-This is a [pre-commit hook](https://pre-commit.com/) that uses graphviz python library to validate or render .dot files
+This is a [pre-commit hook](https://pre-commit.com/) that uses graphviz python library to validate and/or render .dot files
 
 ## Installation
 
