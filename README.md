@@ -4,33 +4,29 @@ This is a [pre-commit hook](https://pre-commit.com/) that uses graphviz python l
 
 ## Installation
 
-Whether you use it as a cli or through [pre-commit hook](https://pre-commit.com/),
-this tool requires [graphviz](https://www.graphviz.org/) to be installed
-
-Thus, if you are on Debian, that is:
+This tool requires the system package [graphviz](https://www.graphviz.org/) to be installed.
+If you are on Debian, that is:
 
     sudo apt install graphviz
     
 ## Rationale
 
-    Linters are cool but auto-generated documentation are even cooler
+    Main goal of this was to auto-generate PNG files out of .dot files so that we have both version in repositories
+    and we are sure that both version match and that developers don't forget to render the PNG's.
 
-## CLI Usage
+## Hooks available
 
-### check-dot
-
+### `check-dot`
 Verify the syntax of .dot files:
-    
-    check-dot your-dot-file1.dot your-dot-file2.dot
 
-### render-dot
+
+### `render-dot`
 Render .dot files to png. This command can work in 2 ways
 
-    # will (re)generate 2 png files, simply appending .png to the source files 
-    render-dot your-dot-file1.dot your-dot-file2.dot
+  - Called without argument, it will render the .png next to the .dot files (simply appending ".png" to the .dot file path)
+  - `--only src1,src2` can be used to select the files to be rendered
+  - `--only src1:target1,src2:target2` can be used to specify custom locations for the PNG (specified per .dot source)
 
-    # will (re)generate 2 png files at custom locations
-    render-dot your-dot-file1.dot your-dot-file2.dot --only your-dot-file1.dot:other_location.png,your-dot-file2.dot:other_location2.png
 
 ## Pre-commit integration
 
