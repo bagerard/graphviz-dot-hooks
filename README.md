@@ -39,6 +39,6 @@ repos:
     hooks:
       - id: check-dot
       - id: render-dot
-        # optionally command: ["--only somefile.dot:doc/somefile.png"]
+        # args: ["--only=class_diagram.dot:docs/class_diagram.png"]
 ```
 
