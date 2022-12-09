@@ -11,8 +11,8 @@ If you are on Debian, that is:
     
 ## Rationale
 
-    Main goal of this was to auto-generate PNG files out of .dot files so that we have both version in repositories
-    and we are sure that both version match and that developers don't forget to render the PNG's.
+Main goal of this was to auto-generate PNG files from .dot files so that we have both version in the repository 
+and we are sure that both version match and developers don't forget to render the PNG whenever they edit the .dot.
 
 ## Hooks available
 
