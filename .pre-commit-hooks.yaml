@@ -5,10 +5,24 @@
   language: python
   files: '.dot$'
   pass_filenames: true
-- id: render-dot
-  name: render dot
+- id: render-dot-png
+  name: render dot to png
   description: render all .dot to .dot.png
-  entry: render-dot
+  entry: render-dot-png
+  language: python
+  files: '.dot$'
+  pass_filenames: true
+- id: render-dot-svg
+  name: render dot to svg
+  description: render all .dot to .dot.svg
+  entry: render-dot-svg
+  language: python
+  files: '.dot$'
+  pass_filenames: true
+- id: render-dot
+  name: render dot to png (legacy hook - switch to render-dot-png)
+  description: render all .dot to .dot.png
+  entry: render-dot-png
   language: python
   files: '.dot$'
   pass_filenames: true

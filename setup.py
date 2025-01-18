@@ -25,7 +25,8 @@ setup(
     entry_points={
         "console_scripts": [
             "check-dot = graphviz_dot_hooks.check_dot:main",
-            "render-dot = graphviz_dot_hooks.render_dot:main",
+            "render-dot-png = graphviz_dot_hooks.render_dot_png:main",
+            "render-dot-svg = graphviz_dot_hooks.render_dot_svg:main",
         ]
     },
     classifiers=[
