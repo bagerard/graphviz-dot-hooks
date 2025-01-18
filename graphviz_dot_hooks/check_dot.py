@@ -10,11 +10,12 @@ from graphviz import render
 def _verify_dot_rendering(dot_filepath: str) -> Tuple[bool, Optional[str]]:
     """Trying to render it would detect syntax error, there are probably cheaper way to check this
     but we aren't really looking after performance here"""
+    format = "svg"
     with tempfile.NamedTemporaryFile(suffix=f".{format}") as tmpf:
         try:
             # arbitrary render as svg (more generic than png)
             # but it doesn't matter much as we are mostly interested in .dot syntax
-            render("dot", "svg", dot_filepath, outfile=tmpf.name)
+            render("dot", format, dot_filepath, outfile=tmpf.name)
         except CalledProcessError as ex:
             return False, str(ex)
 
