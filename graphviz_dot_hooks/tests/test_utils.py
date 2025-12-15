@@ -49,7 +49,7 @@ def test__render_dotfile__as_png_not_exist_yet__generate_and_return_false(tmpdir
         format="png",
     )
 
-    assert not ok
+    assert not ok, str(msg)
     assert "Re-generated" in msg
 
     assert os.path.exists(expected_filepath)
