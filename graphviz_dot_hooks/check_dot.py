@@ -1,13 +1,14 @@
 import argparse
 import sys
 from subprocess import CalledProcessError
-from typing import Tuple, List, Sequence, Optional
+from typing import Optional
+from collections.abc import Sequence
 import tempfile
 
 from graphviz import render
 
 
-def _verify_dot_rendering(dot_filepath: str) -> Tuple[bool, Optional[str]]:
+def _verify_dot_rendering(dot_filepath: str) -> tuple[bool, Optional[str]]:
     """Trying to render it would detect syntax error, there are probably cheaper way to check this
     but we aren't really looking after performance here"""
     format = "svg"
@@ -22,7 +23,7 @@ def _verify_dot_rendering(dot_filepath: str) -> Tuple[bool, Optional[str]]:
     return True, None
 
 
-def verify_dots_rendering(dot_filepaths: Sequence[str]) -> Tuple[bool, List[str]]:
+def verify_dots_rendering(dot_filepaths: Sequence[str]) -> tuple[bool, list[str]]:
     all_succeeded = True
     messages = []
 

@@ -6,7 +6,7 @@ INSTALL_REQUIRES = [
 
 VERSION = "0.1.0"
 
-with open("README.md", "r") as fh:
+with open("README.md") as fh:
     long_description = fh.read()
 
 setup(

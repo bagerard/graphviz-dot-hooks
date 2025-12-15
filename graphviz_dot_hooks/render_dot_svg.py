@@ -1,6 +1,5 @@
 import argparse
 import sys
-from typing import Dict
 
 from graphviz_dot_hooks.utils import render_dotfiles, _parse_only_convert
 
@@ -23,7 +22,7 @@ def main():
 
     format = "svg"
 
-    convert_map: Dict[str, str]
+    convert_map: dict[str, str]
     if args.only:
         # Take the intersection of the instancefiles and the --only
         convert_map = _parse_only_convert(args.only, format=format)
